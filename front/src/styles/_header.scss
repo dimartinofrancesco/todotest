@@ -1,0 +1,158 @@
+.header {
+  @include respond(desktop) {
+    float: left;
+    height: calc(100vh - 80px);
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $color_brand;
+    padding: 40px;
+    overflow: auto;
+  }
+
+  &__title {
+    @include respond(desktop) {
+      padding-left: 20px;
+      color: #ffffff;
+      margin-bottom: 96px;
+    }
+  }
+
+  &__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: $color_brand;
+    z-index: 20;
+    padding: 0 4px;
+
+    @include respond(mobile-only) {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    @include respond(desktop) {
+      padding: 0 0 100px 0;
+      min-height: calc(100vh - 311px);
+      position: relative;
+    }
+
+    &__item {
+      color: $color_text--medium;
+      font-size: 8px;
+      line-height: 11px;
+      width: 20%;
+      height: 60px;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      @include respond(desktop) {
+        width: calc(100% - 40px);
+        padding: 17px 20px;
+        flex-direction: row;
+        justify-content: flex-start;
+        font-size: 16px;
+        font-weight: 600;
+        height: auto;
+        cursor: pointer;
+        border-radius: $color_dialog__round-factor;
+        transition: 0.2s ease;
+        margin-bottom: 10px;
+      }
+
+      &:last-child {
+        @include respond(desktop) {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      $p: &;
+
+      &:hover {
+        @include respond(desktop) {
+          color: #ffffff;
+        }
+        #{$p}__icon {
+          @include respond(desktop) {
+            fill: #ffffff;
+          }
+        }
+      }
+
+      &__icon {
+        fill: $color_text--medium;
+        padding-bottom: 7px;
+
+        @include respond(desktop) {
+          padding: 0;
+          margin: 0 10px 0 0;
+        }
+
+        #{$p}--active & {
+          fill: #ffffff;
+        }
+      }
+      &__badge {
+        display: none;
+        transition: 0.2s ease;
+        @include respond(desktop) {
+          display: block;
+          position: absolute;
+          top: 16px;
+          right: 20px;
+          background-color: #ffffff;
+          font-size: 12px;
+          color: $color_brand--light;
+          background-color: $color_text--light;
+          min-height: 20px;
+          min-width: 20px;
+          border-radius: 10px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 12px;
+          padding: 0 8px;
+          font-weight: 400;
+        }
+      }
+
+      &--active {
+        color: #ffffff;
+        @include respond(desktop) {
+          background-color: $color_disabled;
+        }
+        &__icon {
+          fill: $color_text--medium;
+          padding-bottom: 7px;
+        }
+
+        &:hover {
+          @include respond(desktop) {
+            background-color: #fff;
+            color: $color_text--medium;
+          }
+          #{$p}__icon {
+            @include respond(desktop) {
+              fill: $color_text--medium;
+            }
+          }
+          #{$p}__badge {
+            background-color: #fff;
+            color: $color_text--medium;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,143 @@
+.addTodo {
+  padding-bottom: 30px;
+
+  @include respond(desktop) {
+    padding-top: 10px;
+    padding-bottom: 47px;
+  }
+
+  &__add-button {
+    @include respond(desktop) {
+      display: none;
+    }
+  }
+
+  &__submit-button {
+    @include respond(desktop) {
+      margin-left: 60px;
+    }
+  }
+
+  &__form {
+    display: none;
+
+    @include respond(desktop) {
+      display: block;
+    }
+
+    &__show {
+      display: inherit;
+    }
+
+    &:before {
+      @include respond(mobile-only) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: $color_dialog__background;
+        opacity: 0.9;
+        content: " ";
+        z-index: 10;
+      }
+    }
+    &__fieldset {
+      border: none;
+      background-color: $color_brand;
+      @include respond(desktop) {
+        border-radius: $round-factor;
+        background-color: $color_brand;
+        margin-bottom: 0.714rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 42px;
+        padding: 10px;
+      }
+      @include respond(mobile-only) {
+        position: fixed;
+        top: 100px;
+        z-index: 11;
+        left: 2.1875rem;
+        right: 2.1875rem;
+        margin: 0;
+        padding: 0 0 25px 0;
+        border-radius: $color_dialog__round-factor;
+      }
+    }
+    &__header {
+      float: left;
+      width: calc(100% - 35px);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px 0 25px;
+      border-bottom: 1px solid $color_dialog__hr;
+      @include respond(desktop) {
+        display: none;
+      }
+    }
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px 0 25px;
+      @include respond(desktop) {
+        padding: 0;
+      }
+    }
+    &__title {
+      padding: 20px 0;
+      font-size: 16px;
+      width: auto;
+
+      &__priority {
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        margin-right: 8px;
+        display: none;
+
+        &--low {
+          background-color: $color_priority--low;
+          display: inline-block;
+        }
+
+        &--high {
+          background-color: $color_priority--high;
+          display: inline-block;
+        }
+      }
+    }
+    &__input {
+      border: none;
+      background: transparent;
+      padding: 20px 25px;
+      width: 100%;
+      font-size: 18px;
+      box-sizing: border-box;
+      margin-bottom: 40px;
+      resize: none;
+      @include respond(desktop) {
+        font-size: 16px;
+        margin-bottom: 0;
+        height: 42px;
+        padding: 9px 15px 0 7px;
+      }
+      &:focus-visible,
+      &:focus {
+        outline: none;
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      &::placeholder {
+        color: $color_text;
+        opacity: 1;
+        font-size: 18px;
+        @include respond(desktop) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.todo-list__item {
+  border-radius: $round-factor;
+  padding: 9px 15px;
+  background-color: $color_brand;
+  margin-bottom: 0.714rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 42px;
+  position: relative;
+
+  &__priority {
+    width: 10px;
+    height: 10px;
+    background-color: $color_priority--low;
+    border-radius: 10px;
+    margin: 8px;
+
+    &--high {
+      background-color: $color_priority--high;
+    }
+  }
+
+  &__label {
+    max-width: calc(100% - 30px - 26px);
+    font-size: 14px;
+    line-height: 21.5px;
+    @include respond(desktop) {
+      font-size: 16px;
+      line-height: 23px;
+    }
+    &--completed {
+      text-decoration: line-through;
+      color: $color_text;
+    }
+  }
+
+  &__delete-btn {
+    display: none;
+
+    @include respond(desktop) {
+      display: block;
+      position: absolute;
+      right: 25px;
+      top: 50%;
+      margin-top: -20px;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    &:hover {
+      background-color: $color_hover;
+    }
+  }
+}

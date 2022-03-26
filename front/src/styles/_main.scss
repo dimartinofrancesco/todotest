@@ -1,0 +1,21 @@
+body {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  background-color: $color_brand--light;
+  color: $color_text--light;
+}
+
+.container {
+  padding: 35px 35px calc(60px + 35px) 35px;
+  @include respond(desktop) {
+    padding: 0;
+  }
+}
+
+.content {
+  @include respond(desktop) {
+    width: calc(100% - 330px - 70px);
+    float: right;
+    padding: 35px;
+  }
+}

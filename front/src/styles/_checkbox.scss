@@ -1,0 +1,48 @@
+.checkbox {
+  display: block;
+  height: 18px;
+  width: 18px;
+  background: transparent;
+  border: 1px $color_text--light solid;
+  border-radius: 4px;
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    background-color: #27334f;
+    border-color: $color_text--light;
+    fill: #27334f;
+
+    .checkbox--tick {
+      fill: #344261;
+    }
+  }
+
+  &--active {
+    background-color: #000;
+    border-color: #000;
+    fill: #000;
+
+    .checkbox--tick {
+      fill: #ffffff;
+    }
+
+    &:hover {
+      background-color: #27334f;
+      height: 18px;
+      width: 18px;
+      border-color: $color_text--light;
+    }
+  }
+
+  &[type="checkbox"] {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
