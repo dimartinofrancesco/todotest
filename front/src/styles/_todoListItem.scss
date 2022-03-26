@@ -35,8 +35,12 @@
     }
   }
 
+  $p: &;
+
   &__delete-btn {
     display: none;
+    opacity: 0;
+    transition: 0.2s ease;
 
     @include respond(desktop) {
       display: block;
@@ -50,6 +54,10 @@
 
     &:hover {
       background-color: $color_hover;
+    }
+
+    #{$p}:hover & {
+      opacity: 1;
     }
   }
 }
