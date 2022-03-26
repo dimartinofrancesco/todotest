@@ -49,6 +49,36 @@ let todos = [
     completed: false,
     priority: false,
   },
+  {
+    id: nanoid(),
+    title: "A/B test App 2.0",
+    completed: true,
+    priority: true,
+  },
+  {
+    id: nanoid(),
+    title: "Code animation for homepage hero",
+    completed: true,
+    priority: false,
+  },
+  {
+    id: nanoid(),
+    title: "Test for latest changes on homepage",
+    completed: true,
+    priority: false,
+  },
+  {
+    id: nanoid(),
+    title: "Contact stakeholder for shared library",
+    completed: true,
+    priority: false,
+  },
+  {
+    id: nanoid(),
+    title: "Abbiamo in serbo qualcosa per te. Presto anche in italiano",
+    completed: true,
+    priority: false,
+  },
 ];
 
 app.get("/todos", (req, res) => res.send(todos));
